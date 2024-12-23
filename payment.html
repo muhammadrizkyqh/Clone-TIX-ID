@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - TIX ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: #fbbf24;
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            border-radius: 0.375rem;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #f59e0b;
+            transform: scale(1.05);
+        }
+
+        .method-selected {
+            border: 2px solid #fbbf24;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <!-- Payment Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <!-- Title -->
+            <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Payment</h1>
+
+            <!-- Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Booking Summary -->
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Booking Summary</h2>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between">
+                            <span class="font-medium text-gray-700">Film:</span>
+                            <span class="text-gray-600">Hutang Nyawa</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-medium text-gray-700">Cinema:</span>
+                            <span class="text-gray-600">CGV Grand Indonesia</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-medium text-gray-700">Date & Time:</span>
+                            <span class="text-gray-600">12 Dec 2023, 18:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-medium text-gray-700">Seats:</span>
+                            <span class="text-gray-600">A1, A2, A3</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-medium text-gray-700">Price per Seat:</span>
+                            <span class="text-gray-600">IDR 50,000</span>
+                        </li>
+                        <li class="flex justify-between border-t pt-4">
+                            <span class="font-bold text-gray-800">Total:</span>
+                            <span class="font-bold text-blue-600">IDR 150,000</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Payment Method</h2>
+                    <div x-data="{ selectedMethod: '' }" class="space-y-4">
+                        <div @click="selectedMethod = 'ewallet'"
+                            :class="selectedMethod === 'ewallet' ? 'method-selected' : ''"
+                            class="border rounded-lg p-4 flex items-center cursor-pointer transition hover:shadow-md">
+                            <img src="https://via.placeholder.com/50" alt="E-wallet Logo" class="mr-4">
+                            <span class="font-medium text-gray-700">E-Wallet</span>
+                        </div>
+                        <div @click="selectedMethod = 'creditcard'"
+                            :class="selectedMethod === 'creditcard' ? 'method-selected' : ''"
+                            class="border rounded-lg p-4 flex items-center cursor-pointer transition hover:shadow-md">
+                            <img src="https://via.placeholder.com/50" alt="Credit Card Logo" class="mr-4">
+                            <span class="font-medium text-gray-700">Credit Card</span>
+                        </div>
+                        <div @click="selectedMethod = 'banktransfer'"
+                            :class="selectedMethod === 'banktransfer' ? 'method-selected' : ''"
+                            class="border rounded-lg p-4 flex items-center cursor-pointer transition hover:shadow-md">
+                            <img src="https://via.placeholder.com/50" alt="Bank Transfer Logo" class="mr-4">
+                            <span class="font-medium text-gray-700">Bank Transfer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirmation -->
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Confirmation</h2>
+                    <p class="text-gray-600 mb-6">
+                        By clicking "Confirm Payment," you agree to our terms and conditions. Please ensure all
+                        information is correct.
+                    </p>
+                    <button class="btn-primary w-full py-3" onclick="window.location.href='e-ticket.html'">Confirm
+                        Payment</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold text-white mb-4">About TIX ID</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, sequi.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Links</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Now Showing</a></li>
+                    <li><a href="#" class="hover:text-white">Schedules</a></li>
+                    <li><a href="#" class="hover:text-white">Trailers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Support</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-white">Facebook</a>
+                    <a href="#" class="hover:text-white">Twitter</a>
+                    <a href="#" class="hover:text-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

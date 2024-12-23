@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIX ID - Movies & Trailers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(to right, #1e3a8a, #2563eb, #3b82f6);
+        }
+        
+    </style>
+</head>
+
+<body class="pt-16 bg-gray-100 text-gray-800">
+    <!-- Sticky Navbar -->
+    <header class="fixed top-0 left-0 w-full gradient-bg text-white py-4 z-50 shadow-lg" x-data="{ isMenuOpen: false }">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <h1 class="text-2xl font-bold">🎬 TIX ID</h1>
+    
+            <!-- Hamburger Menu -->
+            <button class="lg:hidden block focus:outline-none" @click="isMenuOpen = !isMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+    
+            <!-- Main Navigation Links -->
+            <nav class="hidden lg:flex space-x-6 absolute inset-x-0 mx-auto justify-center">
+                <a href="#" class="hover:text-yellow-400">Home</a>
+                <a href="#" class="hover:text-yellow-400">TIX Now</a>
+                <a href="#" class="hover:text-yellow-400">TIX Events</a>
+                <a href="#" class="hover:text-yellow-400">Careers</a>
+            </nav>
+    
+            <!-- Download Button -->
+            <a href="#" class="hidden lg:block bg-yellow-400 text-white px-4 py-2 rounded-md hover:bg-yellow-500">Download App</a>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-90 text-white flex items-center justify-center transition-all duration-300" 
+             x-show="isMenuOpen" 
+             @click.away="isMenuOpen = false" 
+             x-transition>
+            <div class="absolute top-4 right-4">
+                <!-- Close Button -->
+                <button @click="isMenuOpen = false" class="text-white text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-6 text-center">
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">Home</a></li>
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">TIX Now</a></li>
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">TIX Events</a></li>
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">Careers</a></li>
+                    <li><a href="#" class="bg-yellow-400 text-white text-lg font-bold px-6 py-3 rounded-md hover:bg-yellow-500 inline-block">Download App</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x800');">
+        <div class="container mx-auto px-6 py-16 text-white">
+            <div class="max-w-lg">
+                <h1 class="text-5xl font-bold mb-4">Hutang Nyawa</h1>
+                <div class="flex items-center space-x-2 mb-4">
+                    <span class="bg-red-600 text-white px-3 py-1 rounded text-sm">16+</span>
+                    <span class="bg-gray-600 text-white px-3 py-1 rounded text-sm">CGV</span>
+                </div>
+                <p class="mb-6 leading-relaxed">
+                    Perjuangan Ervina untuk anak dan ibunya membawa malapetaka ketika ritual tumpal menjadi kunci
+                    misteri kelam. Apa yang sebenarnya terjadi? Hutang Nyawa, harus segera dibayar tuntas!
+                </p>
+                <div class="flex items-center space-x-4">
+                    <a href="schedule.html" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-500">
+                        Buy a Ticket
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 text-white hover:underline">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.752 11.168l-3.197-2.132A2.25 2.25 0 008 10.733v2.538a2.25 2.25 0 003.555 1.697l3.197-2.132a1.5 1.5 0 000-2.538z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.5 12a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                        </svg>
+                        <span>Watch the Trailer</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos & Trailers -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-6">Videos & Trailers</h2>
+            <div class="flex space-x-4 overflow-x-auto">
+                <div class="w-1/3 flex-shrink-0">
+                    <div class="bg-black text-white rounded-lg overflow-hidden shadow">
+                        <img src="https://via.placeholder.com/400x200" alt="Trailer Thumbnail">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">Official Trailer</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 flex-shrink-0">
+                    <div class="bg-black text-white rounded-lg overflow-hidden shadow">
+                        <img src="https://via.placeholder.com/400x200" alt="Trailer Thumbnail">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">Teaser Trailer</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 flex-shrink-0">
+                    <div class="bg-black text-white rounded-lg overflow-hidden shadow">
+                        <img src="https://via.placeholder.com/400x200" alt="Trailer Thumbnail">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">First Look</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cast & Crew -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-6">Cast & Crew</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="Actor Image" class="rounded-full mx-auto mb-2">
+                    <h3 class="text-lg font-semibold">Tasya Namya</h3>
+                    <p class="text-sm text-gray-600">Cast</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="Actor Image" class="rounded-full mx-auto mb-2">
+                    <h3 class="text-lg font-semibold">Muhammad Khan</h3>
+                    <p class="text-sm text-gray-600">Cast</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="Actor Image" class="rounded-full mx-auto mb-2">
+                    <h3 class="text-lg font-semibold">Rachel Vennya</h3>
+                    <p class="text-sm text-gray-600">Cast</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="Actor Image" class="rounded-full mx-auto mb-2">
+                    <h3 class="text-lg font-semibold">Mian Tiara</h3>
+                    <p class="text-sm text-gray-600">Cast</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-6">Photos</h2>
+            <div class="flex space-x-4 overflow-x-auto">
+                <img src="https://via.placeholder.com/400x200" alt="Photo" class="rounded-lg shadow">
+                <img src="https://via.placeholder.com/400x200" alt="Photo" class="rounded-lg shadow">
+                <img src="https://via.placeholder.com/400x200" alt="Photo" class="rounded-lg shadow">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold text-white mb-4">About TIX ID</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, sequi.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Links</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Now Showing</a></li>
+                    <li><a href="#" class="hover:text-white">Schedules</a></li>
+                    <li><a href="#" class="hover:text-white">Trailers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Support</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-white">Facebook</a>
+                    <a href="#" class="hover:text-white">Twitter</a>
+                    <a href="#" class="hover:text-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

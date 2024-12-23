@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIX ID - Movies & Trailers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(to right, #1e3a8a, #2563eb, #3b82f6);
+        }
+
+        .btn-primary {
+            background-color: #fbbf24;
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            border-radius: 0.375rem;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #f59e0b;
+            transform: scale(1.05);
+        }
+
+        .hero-bg {
+            background-image: url('https://via.placeholder.com/1920x800');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="pt-16 bg-gray-100 text-gray-800">
+    <!-- Sticky Navbar -->
+    <header class="fixed top-0 left-0 w-full gradient-bg text-white py-4 z-50 shadow-lg" x-data="{ isMenuOpen: false }">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <h1 class="text-2xl font-bold">🎬 TIX ID</h1>
+
+            <!-- Hamburger Menu -->
+            <button class="lg:hidden block focus:outline-none" @click="isMenuOpen = !isMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+            <!-- Main Navigation Links -->
+            <nav class="hidden lg:flex space-x-6 absolute inset-x-0 mx-auto justify-center">
+                <a href="#" class="hover:text-yellow-400">Home</a>
+                <a href="#" class="hover:text-yellow-400">TIX Now</a>
+                <a href="#" class="hover:text-yellow-400">TIX Events</a>
+                <a href="#" class="hover:text-yellow-400">Careers</a>
+            </nav>
+
+            <!-- Download Button -->
+            <a href="#"
+                class="hidden lg:block bg-yellow-400 text-white px-4 py-2 rounded-md hover:bg-yellow-500">Download
+                App</a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-90 text-white flex items-center justify-center transition-all duration-300"
+            x-show="isMenuOpen" @click.away="isMenuOpen = false" x-transition>
+            <div class="absolute top-4 right-4">
+                <!-- Close Button -->
+                <button @click="isMenuOpen = false" class="text-white text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="h-8 w-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-6 text-center">
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">Home</a></li>
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">TIX Now</a></li>
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">TIX Events</a></li>
+                    <li><a href="#" class="text-2xl font-bold hover:text-yellow-400">Careers</a></li>
+                    <li><a href="#"
+                            class="bg-yellow-400 text-white text-lg font-bold px-6 py-3 rounded-md hover:bg-yellow-500 inline-block">Download
+                            App</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-24">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-4">Find Your Movie Schedule</h1>
+            <p class="text-lg">Choose your city and find the perfect showtime for your favorite movies!</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white shadow-md rounded-lg -mt-12 relative z-10 container mx-auto px-6">
+        <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="w-full sm:w-1/3">
+                <label for="city" class="block text-gray-700 font-medium">Select City</label>
+                <select id="city"
+                    class="w-full border-gray-300 rounded-md shadow-sm mt-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option>Jakarta</option>
+                    <option>Surabaya</option>
+                    <option>Bandung</option>
+                    <option>Medan</option>
+                    <option>Bali</option>
+                </select>
+            </div>
+            <div class="w-full sm:w-1/3">
+                <label for="date" class="block text-gray-700 font-medium">Select Date</label>
+                <input type="date" id="date"
+                    class="w-full border-gray-300 rounded-md shadow-sm mt-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <button class="btn-primary mt-4 sm:mt-0">Search</button>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center">🎬 Jakarta Cinemas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cinema Card 1 -->
+                <div
+                    class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform hover:scale-105 transition duration-300">
+                    <h3 class="text-xl font-bold mb-4">CGV Grand Indonesia</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <h4 class="text-lg font-semibold">Hutang Nyawa</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="btn-primary" onclick="window.location.href='seat.html'">10:30</button>
+                                <button class="btn-primary">13:00</button>
+                                <button class="btn-primary">15:30</button>
+                                <button class="btn-primary">18:00</button>
+                                <button class="btn-primary">20:30</button>
+                            </div>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-semibold">Mufasa: The Lion King</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="btn-primary">11:00</button>
+                                <button class="btn-primary">14:00</button>
+                                <button class="btn-primary">17:00</button>
+                                <button class="btn-primary">19:30</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Cinema Card 2 -->
+                <div
+                    class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform hover:scale-105 transition duration-300">
+                    <h3 class="text-xl font-bold mb-4">XXI Plaza Senayan</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <h4 class="text-lg font-semibold">Racun Sangga</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="btn-primary">09:00</button>
+                                <button class="btn-primary">12:00</button>
+                                <button class="btn-primary">15:00</button>
+                                <button class="btn-primary">18:30</button>
+                            </div>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-semibold">Modal Nekad</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="btn-primary">10:00</button>
+                                <button class="btn-primary">13:30</button>
+                                <button class="btn-primary">16:30</button>
+                                <button class="btn-primary">19:00</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Cinema Card 3 -->
+                <div
+                    class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform hover:scale-105 transition duration-300">
+                    <h3 class="text-xl font-bold mb-4">Blitz Megaplex Pacific Place</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <h4 class="text-lg font-semibold">Surup</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="btn-primary">10:00</button>
+                                <button class="btn-primary">12:30</button>
+                                <button class="btn-primary">15:00</button>
+                                <button class="btn-primary">18:30</button>
+                            </div>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-semibold">Moana 2</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="btn-primary">11:00</button>
+                                <button class="btn-primary">14:00</button>
+                                <button class="btn-primary">17:00</button>
+                                <button class="btn-primary">20:00</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Add more Cinema Cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold text-white mb-4">About TIX ID</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, sequi.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Links</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Now Showing</a></li>
+                    <li><a href="#" class="hover:text-white">Schedules</a></li>
+                    <li><a href="#" class="hover:text-white">Trailers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Support</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-white">Facebook</a>
+                    <a href="#" class="hover:text-white">Twitter</a>
+                    <a href="#" class="hover:text-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

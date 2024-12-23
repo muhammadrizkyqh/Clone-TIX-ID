@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Seat Selection - TIX ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .seat {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background-color 0.3s;
+        }
+
+        .seat.available {
+            background-color: #e5e7eb;
+            color: #4b5563;
+            cursor: pointer;
+        }
+
+        .seat.reserved {
+            background-color: #f87171;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .seat.selected {
+            background-color: #fbbf24;
+            color: black;
+        }
+
+        .seat.available:hover {
+            transform: scale(1.1);
+        }
+
+        .screen {
+            background-color: #4b5563;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <!-- Seat Selection Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl font-bold mb-6 text-center text-blue-600">Select Your Seats</h1>
+            <div x-data="{ selectedSeats: [] }">
+                <!-- Screen -->
+                <div class="screen">SCREEN</div>
+
+                <!-- Seat Map -->
+                <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 sm:gap-4">
+                    <!-- Generate Rows -->
+                    <template x-for="row in ['A', 'B', 'C', 'D', 'E']">
+                        <div
+                            class="col-span-5 sm:col-span-8 md:col-span-10 grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 sm:gap-4 items-center">
+                            <!-- Row Label -->
+                            <div class="col-span-full text-gray-600 font-medium text-center" x-text="row"></div>
+                            <!-- Seats -->
+                            <template x-for="(seat, index) in Array(10).fill('available')" :key="index">
+                                <div :class="['seat w-full max-w-[3rem] sm:max-w-[3.5rem] md:max-w-[4rem]', seat, selectedSeats.includes(row + (index + 1)) ? 'selected' : '']"
+                                    @click="if (seat === 'available') {
+                                        let seatId = row + (index + 1);
+                                        if (selectedSeats.includes(seatId)) {
+                                            selectedSeats = selectedSeats.filter(s => s !== seatId);
+                                        } else {
+                                            selectedSeats.push(seatId);
+                                        }
+                                    }" x-text="index + 1"></div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Legend -->
+                <div class="flex justify-center items-center space-x-6 mt-6">
+                    <div class="flex items-center space-x-2">
+                        <div class="seat available w-8 h-8"></div>
+                        <span class="text-sm font-medium text-gray-600">Available</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="seat reserved w-8 h-8"></div>
+                        <span class="text-sm font-medium text-gray-600">Reserved</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="seat selected w-8 h-8"></div>
+                        <span class="text-sm font-medium text-gray-600">Selected</span>
+                    </div>
+                </div>
+
+                <!-- Selected Seats -->
+                <div class="text-center mt-8">
+                    <h2 class="text-lg font-medium text-gray-800">Selected Seats:</h2>
+                    <p class="text-blue-600 font-semibold"
+                        x-text="selectedSeats.length > 0 ? selectedSeats.join(', ') : 'No seats selected'"></p>
+                </div>
+
+                <!-- Confirm Button -->
+                <div class="text-center mt-6">
+                    <button
+                        class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg shadow-md"
+                        @click="alert('Seats Confirmed: ' + selectedSeats.join(', ')); window.location.href='payment.html'">
+                        Confirm Seats
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

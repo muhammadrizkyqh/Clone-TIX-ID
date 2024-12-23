@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticket - TIX ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ticket {
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .ticket-header {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .ticket-body {
+            padding: 1.5rem;
+        }
+
+        .qr-code {
+            border: 4px dashed #2563eb;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Your E-Ticket</h1>
+
+            <div class="ticket mx-auto max-w-3xl">
+                <!-- Header -->
+                <div class="ticket-header">
+                    <h2 class="text-2xl font-bold">🎬 Hutang Nyawa</h2>
+                    <p class="text-sm mt-1">CGV Grand Indonesia | 12 Dec 2023, 18:00</p>
+                </div>
+
+                <!-- Body -->
+                <div class="ticket-body">
+                    <!-- Details -->
+                    <div class="grid grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700">Cinema</h3>
+                            <p class="text-gray-600">CGV Grand Indonesia</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700">Seats</h3>
+                            <p class="text-gray-600">A1, A2, A3</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700">Date</h3>
+                            <p class="text-gray-600">12 Dec 2023</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700">Time</h3>
+                            <p class="text-gray-600">18:00</p>
+                        </div>
+                    </div>
+
+                    <!-- QR Code -->
+                    <div class="text-center mb-6">
+                        <div class="qr-code">
+                            <img src="https://via.placeholder.com/150" alt="QR Code">
+                        </div>
+                        <p class="text-gray-600 text-sm mt-2">Show this QR code at the entrance</p>
+                    </div>
+
+                    <!-- Additional Info -->
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Important Information</h3>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-2">
+                            <li>Arrive at least 15 minutes before the showtime.</li>
+                            <li>This ticket is valid for the selected date and time only.</li>
+                            <li>Keep this QR code safe and do not share it with others.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold text-white mb-4">About TIX ID</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, sequi.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Links</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Now Showing</a></li>
+                    <li><a href="#" class="hover:text-white">Schedules</a></li>
+                    <li><a href="#" class="hover:text-white">Trailers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Support</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-white">Facebook</a>
+                    <a href="#" class="hover:text-white">Twitter</a>
+                    <a href="#" class="hover:text-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
